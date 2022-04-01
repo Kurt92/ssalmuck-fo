@@ -10,9 +10,7 @@ export default function MainContainer() {
           style={{
             backgroundColor: "#6c757d",
           }}
-        >
-          div1
-        </div>
+        ></div>
         <div
           className="col-md-4"
           style={{

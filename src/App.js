@@ -10,9 +10,10 @@ import Footer from "./Component/Footer";
 import { Link, Route, Switch } from "react-router-dom";
 import Board from "./Component/Board";
 import Board2 from "./Component/Board2";
+import axios from "axios";
 
 function App() {
-  let [stateCard, setStateCard] = useState(["chcch123", ""]);
+  let [notice, setNotice] = useState();
 
   return (
     <div className="App">
@@ -22,7 +23,7 @@ function App() {
         <SlideBoard />
         <MainMenuContainer />
         <MainContainer />
-        <MainCard stateCard={stateCard} />
+        <MainCard />
 
         <Footer />
       </Route>

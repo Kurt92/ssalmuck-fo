@@ -54,13 +54,17 @@ export default function NavbarOffcanvas({ name, ...props }) {
         <Offcanvas.Body>
           <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="http://localhost:3000/board2"
+              >
+                게시판
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
+              <a className="nav-link" href="http://localhost:3000/board">
+                상품
               </a>
             </li>
             <li className="nav-item dropdown">

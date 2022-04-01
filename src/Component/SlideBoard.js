@@ -38,13 +38,22 @@ export default function SlideBoard() {
           </div>
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img src="image/slideBoard2.png" style={{ width: "100%" }} />
+              <img
+                src="image/slideBoard2.png"
+                style={{ width: "100%", height: "350px " }}
+              />
             </div>
             <div className="carousel-item">
-              <img src="image/slideBoard3.png" style={{ width: "100%" }} />
+              <img
+                src="image/slideBoard3.png"
+                style={{ width: "100%", height: "350px " }}
+              />
             </div>
             <div className="carousel-item">
-              <img src="image/slideBoard2.png" style={{ width: "100%" }} />
+              <img
+                src="image/slideBoard2.png"
+                style={{ width: "100%", height: "350px " }}
+              />
             </div>
           </div>
           <button

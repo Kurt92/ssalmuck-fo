@@ -1,7 +1,26 @@
 import { Table } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Borad2Table() {
-  let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  let [board, setBoard] = useState();
+
+  let boardData = () => {
+    axios
+      .get("http://localhost:3005/board")
+      .then((result) => {
+        console.log("success");
+        setBoard(result.data);
+      })
+      .catch(() => {
+        console.log("failed");
+      });
+  };
+
+  useEffect(() => {
+    boardData();
+  }, []);
+
   return (
     <div
       style={{
@@ -15,22 +34,23 @@ export default function Borad2Table() {
         <thead>
           <tr>
             <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>제목</th>
+            <th>유저명</th>
+            <th>생성일</th>
           </tr>
         </thead>
         <tbody>
-          {array.map((index) => {
-            return (
-              <tr>
-                <td>{index}</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-            );
-          })}
+          {board &&
+            board.map((board, i) => {
+              return (
+                <tr key={board.key}>
+                  <td>{board.board_key}</td>
+                  <td>{board.title}</td>
+                  <td>{board.key}</td>
+                  <td>@mdo</td>
+                </tr>
+              );
+            })}
         </tbody>
       </Table>
     </div>
