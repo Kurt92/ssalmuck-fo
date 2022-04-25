@@ -1,4 +1,4 @@
-import styles from "./css/mainContainer.css";
+import "./css/mainContainer.module.css";
 
 export default function MainContainer() {
   return (

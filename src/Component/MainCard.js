@@ -1,4 +1,4 @@
-import cardStyle from "./css/mainCardStyle.css";
+import cardStyle from "./css/mainCardStyle.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
