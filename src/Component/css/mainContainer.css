@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    padding-Top: 50px;
+    padding-Bottom: 50px;
+    margin: 0 auto;
+}
+.row{
+    display: flex;
+    --bs-gutter-x: 25.5rem !important;
+}
+.col-md-4 {
+    width: 300px;
+}

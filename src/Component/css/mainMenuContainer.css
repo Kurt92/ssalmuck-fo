@@ -1,7 +1,16 @@
 /* entire container, keeps perspective */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+}
 .flip-container {
     perspective: 1000px;
     border:2px solid rgba(0,0,0,0) !important;
+    width: 300px !important;
+    height: 300px;
+    border: solid red;
 }
 
 /* front pane, placed above back */
@@ -13,6 +22,7 @@
     height: 300px;
     border: solid red;
     padding: 10px;
+    background:url('/public/logo512.png');
 
 }
 /* back, initially hidden pane */
@@ -22,6 +32,7 @@
     height: 300px;
     border: solid red;
     padding: 10px;
+
 }
 
 /* flip the pane when hovered */

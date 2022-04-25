@@ -1,16 +1,17 @@
+import styles from "./css/mainContainer.css";
+
 export default function MainContainer() {
   return (
-    <div
-      className="container"
-      style={{ paddingTop: "50px", paddingBottom: "50px" }}
-    >
+    <div className="container">
       <div className="row">
         <div
           className="col-md-4"
           style={{
             backgroundColor: "#6c757d",
           }}
-        ></div>
+        >
+          div3
+        </div>
         <div
           className="col-md-4"
           style={{
