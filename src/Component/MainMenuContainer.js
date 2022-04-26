@@ -1,4 +1,4 @@
-import "./css/mainMenuContainer.css";
+import Styles from "./css/mainMenuContainer.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -22,63 +22,51 @@ export default function MainMenuContainer() {
   }, []);
 
   return (
-    <div className="container">
+    <div className={Styles.container}>
       <div
-        className="flip-container"
+        className={Styles.flip_container}
         onTouchStart="this.classList.toggle('hover');"
       >
-        <div className="flipper">
-          <div className="front"></div>
-          <div className="back">
-            <div className="notice">
+        <div className={Styles.flipper}>
+          <div className={Styles.front}></div>
+          <div className={Styles.back}>
+            <div className={Styles.notice}>
               <div></div>
             </div>
           </div>
         </div>
       </div>
       <div
-        className="flip-container"
+        className={Styles.flip_container}
         onTouchStart="this.classList.toggle('hover');"
-        style={{
-          width: "300px",
-          height: "300px",
-          border: "solid red",
-        }}
-      >
-        <div className="flipper">
-          <div className="front">front</div>
-          <div className="back">back</div>
-        </div>
-      </div>
-      <div
-        className="flip-container"
-        onTouchStart="this.classList.toggle('hover');"
-        style={{
-          width: "300px",
-          height: "300px",
-          border: "solid red",
-        }}
-      >
-        <div className="flipper">
-          <div className="front">front</div>
-          <div className="back">back</div>
-        </div>
-      </div>
 
-      <div
-        className="flip-container"
-        onTouchStart="this.classList.toggle('hover');"
-        style={{
-          width: "300px",
-          height: "300px",
-          border: "solid red",
-        }}
       >
-        <div className="flipper">
-          <div className="front">front</div>
-          <div className="back">back</div>
+        <div className={Styles.flipper}>
+          <div className={Styles.front}>front</div>
+          <div className={Styles.back}>back</div>
         </div>
       </div>
+        <div
+            className={Styles.flip_container}
+            onTouchStart="this.classList.toggle('hover');"
+
+        >
+            <div className={Styles.flipper}>
+                <div className={Styles.front}>front</div>
+                <div className={Styles.back}>back</div>
+            </div>
+        </div>
+
+        <div
+            className={Styles.flip_container}
+            onTouchStart="this.classList.toggle('hover');"
+
+        >
+            <div className={Styles.flipper}>
+                <div className={Styles.front}>front</div>
+                <div className={Styles.back}>back</div>
+            </div>
+        </div>
     </div>
   );
 }

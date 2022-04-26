@@ -5,7 +5,7 @@
     justify-content: space-around;
     margin: 0 auto;
 }
-.flip-container {
+.flip_container {
     perspective: 1000px;
     border:2px solid rgba(0,0,0,0) !important;
     width: 300px !important;
@@ -36,11 +36,11 @@
 }
 
 /* flip the pane when hovered */
-.flip-container:hover .flipper, .flip-container.hover .flipper {
+.flip_container:hover .flipper, .flip_container.hover .flipper {
     transform: rotateY(180deg);
 }
 
-.flip-container, .front, .back {
+.flip_container, .front, .back {
     width: 300px;
     height: 300px;
     /*border:1px solid lightgray;*/

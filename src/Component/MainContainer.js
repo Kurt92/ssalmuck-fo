@@ -1,11 +1,11 @@
-import "./css/mainContainer.module.css";
+import Styles from "./css/mainContainer.module.css";
 
 export default function MainContainer() {
   return (
-    <div className="container">
-      <div className="row">
+    <div className={Styles.container}>
+      <div className={Styles.row}>
         <div
-          className="col-md-4"
+          className={Styles.col_md_4}
           style={{
             backgroundColor: "#6c757d",
           }}
@@ -13,7 +13,7 @@ export default function MainContainer() {
           div3
         </div>
         <div
-          className="col-md-4"
+          className={Styles.col_md_4}
           style={{
             backgroundColor: "#3f6383",
           }}
@@ -21,7 +21,7 @@ export default function MainContainer() {
           div2
         </div>
         <div
-          className="col-md-4"
+          className={Styles.col_md_4}
           style={{
             backgroundColor: "#6c757d",
           }}

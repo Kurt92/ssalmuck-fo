@@ -6,8 +6,9 @@
 }
 .row{
     display: flex;
-    --bs-gutter-x: 25.5rem !important;
+    --bs-gutter-x: 30rem !important;
+    margin: 0 auto;
 }
-.col-md-4 {
+.col_md_4 {
     width: 300px;
 }
