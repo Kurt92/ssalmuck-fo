@@ -7,7 +7,7 @@ export default function MainMenuContainer() {
 
   let noticeData = () => {
     axios
-      .get("http://localhost:3005/user")
+      .get("http://localhost:8080/")
       .then((result) => {
         setNotice(result.data);
         console.log(notice.data.title);

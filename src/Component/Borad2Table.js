@@ -7,7 +7,7 @@ export default function Borad2Table() {
 
   let boardData = () => {
     axios
-      .get("http://localhost:3005/board")
+      .get("http://localhost:8080/board2")
       .then((result) => {
         console.log("success");
         setBoard(result.data);
@@ -44,10 +44,10 @@ export default function Borad2Table() {
             board.map((board, i) => {
               return (
                 <tr key={board.key}>
-                  <td>{board.board_key}</td>
+                  <td>{board.id}</td>
                   <td>{board.title}</td>
-                  <td>{board.key}</td>
-                  <td>@mdo</td>
+                  <td>{board.username}</td>
+                  <td>{board.createdt}</td>
                 </tr>
               );
             })}
