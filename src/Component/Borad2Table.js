@@ -10,6 +10,7 @@ export default function Borad2Table() {
       .get("http://localhost:8080/board2")
       .then((result) => {
         console.log("success");
+        alert("aaaaaa");
         setBoard(result.data);
       })
       .catch(() => {

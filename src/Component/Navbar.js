@@ -55,6 +55,9 @@ export default function Navbar() {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
+              <button className="btn btn-outline-success" type="submit">
+                Login
+              </button>
 
               <NavbarOffcanvas />
             </form>
