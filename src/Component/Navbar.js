@@ -3,6 +3,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  let login = () => {
+    window.location.href = "/login";
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -55,7 +59,11 @@ export default function Navbar() {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-              <button className="btn btn-outline-success" type="submit">
+              <button
+                className="btn btn-outline-success"
+                type="button"
+                onClick={login}
+              >
                 Login
               </button>
 

@@ -11,6 +11,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import Board from "./Component/Board";
 import Board2 from "./Component/Board2";
 import axios from "axios";
+import Login from "./Component/Login";
 
 function App() {
   let [notice, setNotice] = useState();
@@ -28,9 +29,9 @@ function App() {
         <Footer />
       </Route>
 
-      <Route exact path="/aaa">
+      <Route exact path="/login">
         <Navbar />
-        <div>aaa</div>
+        <Login />
       </Route>
 
       <Route exact path="/board2">

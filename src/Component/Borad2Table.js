@@ -10,8 +10,11 @@ export default function Borad2Table() {
       .get("http://localhost:8080/board2")
       .then((result) => {
         console.log("success");
-        alert("aaaaaa");
-        setBoard(result.data);
+        let res = result.data.list;
+        console.log(res);
+        console.log(result);
+        console.log("state : " + {board});
+        setBoard(result.data.list);
       })
       .catch(() => {
         console.log("failed");
@@ -44,11 +47,11 @@ export default function Borad2Table() {
           {board &&
             board.map((board, i) => {
               return (
-                <tr key={board.key}>
+                <tr>
                   <td>{board.id}</td>
                   <td>{board.title}</td>
                   <td>{board.username}</td>
-                  <td>{board.createdt}</td>
+                  <td>{board.createDT}</td>
                 </tr>
               );
             })}
