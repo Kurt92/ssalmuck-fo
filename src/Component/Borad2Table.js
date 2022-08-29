@@ -7,13 +7,13 @@ export default function Borad2Table() {
 
   let boardData = () => {
     axios
-      .get("http://localhost:8080/board2")
+      .get("http://localhost:8080/board2.do")
       .then((result) => {
         console.log("success");
         let res = result.data.list;
         console.log(res);
         console.log(result);
-        console.log("state : " + {board});
+        console.log("state : " + { board });
         setBoard(result.data.list);
       })
       .catch(() => {
