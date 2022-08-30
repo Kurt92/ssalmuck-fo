@@ -49,6 +49,29 @@ export default function Login() {
       });
   };
 
+  let result = () => {
+    if (user.name != null) {
+      return  (
+          <>
+            <div className="success">
+              <h2>Authentication Success</h2>
+              <p>Welcome back</p>
+            </div>
+          </>
+      );
+    } else {
+      return (
+          <>
+            <div className="fail">
+              <h2>login fail</h2>
+              <p>go back</p>
+            </div>
+          </>
+      );
+    }
+
+  }
+
   useEffect(() => {
     $('input[type="submit"]').click(function () {
       console.log("click");
@@ -153,10 +176,11 @@ export default function Login() {
           </div>
         </div>
         {/*1 === 2 ? <div className="success"><h2>Authentication Success</h2><p>Welcome back</p></div>:<div className="fail"><h2>fail</h2><p>go back</p></div>*/}
-        <div className="success">
+        {result}
+        {/* <div className="success">
           <h2>Authentication Success</h2>
           <p>Welcome back</p>
-        </div>
+        </div>*/}
         <div className="disclaimer"></div>
       </div>
       <div className="authent">
