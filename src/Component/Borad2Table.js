@@ -1,5 +1,5 @@
 import { Table } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Borad2Table() {
@@ -7,14 +7,14 @@ export default function Borad2Table() {
 
   let boardData = () => {
     axios
-      .get("http://localhost:8080/board2.do")
+      .get("http://localhost:8099/board2")
       .then((result) => {
         console.log("success");
-        let res = result.data.list;
-        console.log(res);
-        console.log(result);
-        console.log("state : " + { board });
-        setBoard(result.data.list);
+        let res = result.data;
+        console.log(result.data);
+        console.log("res : ", res);
+
+        setBoard(result.data);
       })
       .catch(() => {
         console.log("failed");
@@ -47,7 +47,7 @@ export default function Borad2Table() {
           {board &&
             board.map((board, i) => {
               return (
-                <tr>
+                <tr key={board.id}>
                   <td>{board.id}</td>
                   <td>{board.title}</td>
                   <td>{board.username}</td>

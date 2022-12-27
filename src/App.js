@@ -10,6 +10,7 @@ import Footer from "./Component/Footer";
 import { Link, Route, Switch } from "react-router-dom";
 import Board from "./Component/Board";
 import Board2 from "./Component/Board2";
+import Board2Input from "./Component/Board2Input";
 import axios from "axios";
 import Login from "./Component/Login";
 
@@ -38,6 +39,11 @@ function App() {
         <Navbar />
         <Board2 />
         <Footer />
+      </Route>
+
+      <Route exact path="/board2/input">
+        <Navbar />
+        <Board2Input />
       </Route>
 
       <Route exact path="/board">

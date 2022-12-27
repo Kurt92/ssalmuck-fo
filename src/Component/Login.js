@@ -14,7 +14,7 @@ export default function Login() {
 
   let login = () => {
     axios
-      .get("http://localhost:8080/login.do", { params: { id: user.id } })
+      .get("http://localhost:8099/login.do", { params: { id: user.id } })
       .then((result) => {
         console.log(result);
         console.log(result.data.list.id);

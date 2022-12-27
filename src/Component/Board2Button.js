@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function Board2Button() {
   return (
@@ -19,8 +20,10 @@ export default function Board2Button() {
           />
         </div>
         <div style={{ width: "30%" }}>
-          <Button variant="warning">Warning</Button>{" "}
-          <Button variant="success">Success</Button>{" "}
+          <Button variant="success">search</Button>
+          <Button variant="warning">
+            <Link to="/board2/input">search</Link>
+          </Button>
         </div>
       </div>
     </>

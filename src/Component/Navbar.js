@@ -37,7 +37,7 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/board2">
-                  Link
+                  board2
                 </Link>
               </li>
               <li className="nav-item">
