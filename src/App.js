@@ -10,8 +10,12 @@ import Footer from "./Component/Footer";
 import { Link, Route, Switch } from "react-router-dom";
 import Board from "./Component/Board";
 import Board2 from "./Component/Board2";
+import ChatGpt from "./Component/ChatGpt";
+import ChatGptSignUp from "./Component/ChatGptSignUp";
+import ChatGptBoard2Input from "./Component/ChatGptBoard2Input";
+
+import ChatGptFooter from "./Component/ChatGptFooter";
 import Board2Input from "./Component/Board2Input";
-import axios from "axios";
 import Login from "./Component/Login";
 
 function App() {
@@ -27,7 +31,7 @@ function App() {
         <MainContainer />
         <MainCard />
 
-        <Footer />
+        <ChatGptFooter />
       </Route>
 
       <Route exact path="/login">
@@ -35,15 +39,23 @@ function App() {
         <Login />
       </Route>
 
+      <Route exact path="/ChatGpt">
+        <ChatGpt />
+      </Route>
+      <Route exact path="/ChatGptSignUp">
+        <Navbar />
+        <ChatGptSignUp />
+      </Route>
+
       <Route exact path="/board2">
         <Navbar />
         <Board2 />
-        <Footer />
+        <ChatGptFooter />
       </Route>
 
       <Route exact path="/board2/input">
         <Navbar />
-        <Board2Input />
+        <ChatGptBoard2Input />
       </Route>
 
       <Route exact path="/board">

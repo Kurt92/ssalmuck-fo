@@ -5,10 +5,26 @@ export default function Board2Input() {
   let [boardInput, setBoardInput] = useState();
 
   let boardInputData = () => {
+    const param = {};
+    let title = document.getElementById("title").value;
+    let username = document.getElementById("username").value;
+    param.title = title;
+    param.username = username;
+    console.log("post", param);
+    console.log(JSON.stringify(param));
+
+    const axiosConfig = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
     axios
-      .post("http://localhost:8099/board2")
+      .post("http://localhost:8099/board2", JSON.stringify(param), axiosConfig)
       .then(() => {
         console.log("success");
+        document.getElementById("title").value = "";
+        document.getElementById("username").value = "";
       })
       .catch(() => {
         console.log("fail");
@@ -28,26 +44,28 @@ export default function Board2Input() {
         insert
         <div style={{ border: "1px solid red" }}>
           <table style={{ border: "1px solid black" }}>
-            <tr style={{ height: "50px" }}>
-              <td style={{ width: "100px" }}>title</td>
-              <td style={{ width: "400px" }}>
-                <input
-                  type={"text"}
-                  id={"title"}
-                  placeholder={"제목을입력하세요"}
-                />
-              </td>
-            </tr>
-            <tr style={{ height: "50px" }}>
-              <td style={{ width: "100px" }}>아이디</td>
-              <td style={{ width: "400px" }}>
-                <input type={"text"} id={"userId"} />
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-            </tr>
+            <tbody>
+              <tr style={{ height: "50px" }}>
+                <td style={{ width: "100px" }}>title</td>
+                <td style={{ width: "400px" }}>
+                  <input
+                    type={"text"}
+                    id={"title"}
+                    placeholder={"제목을입력하세요"}
+                  />
+                </td>
+              </tr>
+              <tr style={{ height: "50px" }}>
+                <td style={{ width: "100px" }}>아이디</td>
+                <td style={{ width: "400px" }}>
+                  <input type={"text"} id={"username"} />
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div style={{ border: "1px solid red" }}>
@@ -58,7 +76,14 @@ export default function Board2Input() {
           />
         </div>
         <div>
-          <button>insert</button>
+          <button
+            type={"submit"}
+            onClick={() => {
+              boardInputData();
+            }}
+          >
+            insert
+          </button>
         </div>
       </div>
     </div>

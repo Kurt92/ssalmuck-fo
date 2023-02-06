@@ -22,7 +22,7 @@ export default function Board2Button() {
         <div style={{ width: "30%" }}>
           <Button variant="success">search</Button>
           <Button variant="warning">
-            <Link to="/board2/input">search</Link>
+            <Link to="/board2/input">insertForm</Link>
           </Button>
         </div>
       </div>

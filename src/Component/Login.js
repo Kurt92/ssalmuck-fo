@@ -4,6 +4,7 @@ import "jquery-ui-dist/jquery-ui.css";
 import "jquery-ui-dist/jquery-ui.min.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   let [user, setUser] = useState({
@@ -45,32 +46,31 @@ export default function Login() {
         console.log(user);
       })
       .catch(() => {
-        console.log("fail")
+        console.log("fail");
       });
   };
 
   let result = () => {
     if (user.name != null) {
-      return  (
-          <>
-            <div className="success">
-              <h2>Authentication Success</h2>
-              <p>Welcome back</p>
-            </div>
-          </>
+      return (
+        <>
+          <div className="success">
+            <h2>Authentication Success</h2>
+            <p>Welcome back</p>
+          </div>
+        </>
       );
     } else {
       return (
-          <>
-            <div className="fail">
-              <h2>login fail</h2>
-              <p>go back</p>
-            </div>
-          </>
+        <>
+          <div className="fail">
+            <h2>login fail</h2>
+            <p>go back</p>
+          </div>
+        </>
       );
     }
-
-  }
+  };
 
   useEffect(() => {
     $('input[type="submit"]').click(function () {
@@ -172,6 +172,11 @@ export default function Login() {
             <input type="submit" value="Log In" />
             <div className="forgot">
               <a href="#">Forgotten password?</a>
+            </div>
+            <div className="forgot">
+              <Link className="nav-link" to="/ChatGptSignUp">
+                SignIn
+              </Link>
             </div>
           </div>
         </div>

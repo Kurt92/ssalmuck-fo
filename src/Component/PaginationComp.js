@@ -1,33 +1,46 @@
-import { Pagination } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import "./css/pagination.css";
+import Pagination from "react-js-pagination";
+import axios from "axios";
 
-export default function PaginationComp() {
+export default function PaginationComp(props) {
+  const [posts, setPosts] = useState([]);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+  const [result, setResult] = useState();
+  const offset = (page - 1) * limit;
+  let params = {
+    page: page,
+    size: limit,
+  };
+  const { getPagingData } = props;
+  const handlePageChange = (page, props) => {
+    setPage(page);
+    params.page = page - 1;
+    console.log(limit);
+    console.log(page);
+    axios
+      .get("http://localhost:8099/board2", { params })
+      .then((result) => {
+        console.log("result", result);
+        getPagingData(result.data);
+      })
+      .catch(() => {
+        alert("fail");
+      });
+  };
+  useEffect(() => {}, [result]);
+  useEffect(() => {}, []);
+
   return (
-    <>
-      <div
-        style={{
-          display: "flex",
-          width: "80%",
-          margin: "0 auto",
-        }}
-      >
-        <Pagination style={{ margin: "0 auto" }}>
-          <Pagination.First />
-          <Pagination.Prev />
-          <Pagination.Item>{1}</Pagination.Item>
-          <Pagination.Ellipsis />
-
-          <Pagination.Item>{10}</Pagination.Item>
-          <Pagination.Item>{11}</Pagination.Item>
-          <Pagination.Item active>{12}</Pagination.Item>
-          <Pagination.Item>{13}</Pagination.Item>
-          <Pagination.Item disabled>{14}</Pagination.Item>
-
-          <Pagination.Ellipsis />
-          <Pagination.Item>{20}</Pagination.Item>
-          <Pagination.Next />
-          <Pagination.Last />
-        </Pagination>
-      </div>
-    </>
+    <Pagination
+      activePage={page}
+      itemsCountPerPage={10}
+      totalItemsCount={450}
+      pageRangeDisplayed={5}
+      prevPageText={"‹"}
+      nextPageText={"›"}
+      onChange={handlePageChange}
+    />
   );
 }

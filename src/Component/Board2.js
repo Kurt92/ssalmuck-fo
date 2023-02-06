@@ -1,16 +1,27 @@
 import PaginationComp from "./PaginationComp";
-import Borad2Table from "./Borad2Table";
-import Borad2Search from "./Borad2Search";
+import Board2Table from "./Board2Table";
+import Board2Search from "./Board2Search";
 import Board2Button from "./Board2Button";
-import { Button } from "react-bootstrap";
+import { createContext, useEffect, useState } from "react";
 
 export default function Board2() {
+  let [board2, setBoard2] = useState();
+
+  const getPagingData = (result) => {
+    setBoard2(result);
+    console.log("board2 get", result);
+  };
+
+  /*useEffect(() => {
+    console.log("useEffc in board2", "change");
+  }, [board2]);*/
+
   return (
     <>
-      <Borad2Search />
+      <Board2Search />
       <Board2Button />
-      <Borad2Table />
-      <PaginationComp />
+      <Board2Table data={board2} />
+      <PaginationComp getPagingData={getPagingData} />
     </>
   );
 }
