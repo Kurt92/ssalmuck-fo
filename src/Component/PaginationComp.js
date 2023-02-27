@@ -23,7 +23,7 @@ export default function PaginationComp(props) {
       .get("http://localhost:8099/board2", { params })
       .then((result) => {
         console.log("result", result);
-        getPagingData(result.data);
+        getPagingData(result.data.content);
       })
       .catch(() => {
         alert("fail");

@@ -1,6 +1,7 @@
 import { Table } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Board2Table(props) {
   let [board, setBoard] = useState();
@@ -14,12 +15,9 @@ export default function Board2Table(props) {
     axios
       .get("http://localhost:8099/board2", { params })
       .then((result) => {
-        console.log("success");
-        let res = result.data;
-        console.log(result.data);
-        console.log("res : ", res);
-
-        setBoard(result.data);
+        console.log("res2 : ", result.data.content);
+        let res = result.data.content;
+        setBoard(res);
       })
       .catch(() => {
         console.log("failed");
@@ -65,7 +63,14 @@ export default function Board2Table(props) {
                   <tr key={board.i}>
                     <td key={board.i}></td>
                     <td>{board.id}</td>
-                    <td>{board.title}</td>
+                    <td>
+                      <Link
+                        to={`/postDetail/${board.id}`}
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        {board.title}
+                      </Link>
+                    </td>
                     <td>{board.username}</td>
                     <td></td>
                     <td>{board.createdDate}</td>

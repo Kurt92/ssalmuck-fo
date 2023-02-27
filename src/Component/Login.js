@@ -8,17 +8,23 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
   let [user, setUser] = useState({
-    id: "",
+    user_id: "",
     password: "",
     name: "",
   });
 
+  const axiosConfig = {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  };
+
   let login = () => {
     axios
-      .get("http://localhost:8099/login.do", { params: { id: user.id } })
+      .post("http://localhost:8099/login", user, axiosConfig)
       .then((result) => {
         console.log(result);
-        console.log(result.data.list.id);
+        console.log(result.data.list.user_id);
         console.log(result.data.list.password);
         console.log(result.data.list.name);
 
@@ -75,9 +81,9 @@ export default function Login() {
   useEffect(() => {
     $('input[type="submit"]').click(function () {
       console.log("click");
-      setUser((user.id = $("#id").val()));
+      setUser((user.user_id = $("#id").val()));
       setUser((user.password = $("#password").val()));
-      console.log(user);
+      console.log("!!!!!", user);
       login();
       $(".login").addClass("test");
       setTimeout(function () {
