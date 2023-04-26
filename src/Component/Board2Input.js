@@ -1,8 +1,35 @@
-import { useState } from "react";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Typography from "@material-ui/core/Typography";
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
 
-export default function Board2Input() {
-  let [boardInput, setBoardInput] = useState();
+const useStyles = makeStyles((theme) => ({
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  textField: {
+    marginTop: theme.spacing(2),
+    width: "60%",
+  },
+  viewCount: {
+    width: "60%",
+    marginTop: theme.spacing(2),
+    textAlign: "center",
+  },
+  textArea: {
+    marginTop: theme.spacing(2),
+    width: "60%",
+  },
+}));
+
+const NewPostForm = () => {
+  const classes = useStyles();
 
   let boardInputData = () => {
     const param = {};
@@ -32,60 +59,54 @@ export default function Board2Input() {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-around" }}>
-      <div
-        style={{
-          display: "felx",
-          border: "1px solid red",
-          width: "80%",
-          height: "1000px",
-        }}
-      >
-        insert
-        <div style={{ border: "1px solid red" }}>
-          <table style={{ border: "1px solid black" }}>
-            <tbody>
-              <tr style={{ height: "50px" }}>
-                <td style={{ width: "100px" }}>title</td>
-                <td style={{ width: "400px" }}>
-                  <input
-                    type={"text"}
-                    id={"title"}
-                    placeholder={"제목을입력하세요"}
-                  />
-                </td>
-              </tr>
-              <tr style={{ height: "50px" }}>
-                <td style={{ width: "100px" }}>아이디</td>
-                <td style={{ width: "400px" }}>
-                  <input type={"text"} id={"username"} />
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div style={{ border: "1px solid red" }}>
-          <textarea
-            id={"content"}
-            placeholder="입력하세요"
-            style={{ width: "80%", height: "200px" }}
-          />
-        </div>
+    <>
+      <form className={classes.form}>
+        <TextField
+          required
+          id="username"
+          label="User ID"
+          aria-readonly={true}
+          className={classes.textField}
+          defaultValue={"asdasdasdasds"}
+        />
+        <TextField
+          required
+          id="title"
+          label="Title"
+          className={classes.textField}
+        />
+        <TextareaAutosize
+          required
+          minRows={10}
+          id="content"
+          label="Content"
+          className={classes.textArea}
+        />
+        <TextField
+          id="attached-file"
+          label="Attached File"
+          className={classes.textField}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">Choose File</InputAdornment>
+            ),
+          }}
+        />
         <div>
-          <button
-            type={"submit"}
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
             onClick={() => {
               boardInputData();
             }}
           >
-            insert
-          </button>
+            Submit
+          </Button>
         </div>
-      </div>
-    </div>
+      </form>
+    </>
   );
-}
+};
+
+export default NewPostForm;

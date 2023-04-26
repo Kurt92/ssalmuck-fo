@@ -1,0 +1,38 @@
+.ChatList {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.ChatListItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.ChatListItem:hover {
+    background-color: #f5f5f5;
+}
+
+.ChatListItem img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.ChatListItemText {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.ChatListItemName {
+    font-weight: bold;
+}
+
+.ChatListItemMessage {
+    color: #777;
+}

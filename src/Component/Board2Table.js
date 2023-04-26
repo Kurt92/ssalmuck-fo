@@ -65,8 +65,8 @@ export default function Board2Table(props) {
                     <td>{board.id}</td>
                     <td>
                       <Link
-                        to={`/postDetail/${board.id}`}
-                        style={{ textDecoration: "none", color: "black" }}
+                        to={`/board2/detail?id=${board.id}`}
+                        style={{ textDecoration: "none", color: "inherit" }}
                       >
                         {board.title}
                       </Link>

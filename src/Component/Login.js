@@ -15,7 +15,7 @@ export default function Login() {
 
   const axiosConfig = {
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Type": "application/json",
     },
   };
 
@@ -23,12 +23,11 @@ export default function Login() {
     axios
       .post("http://localhost:8099/login", user, axiosConfig)
       .then((result) => {
-        console.log(result);
-        console.log(result.data.list.user_id);
-        console.log(result.data.list.password);
-        console.log(result.data.list.name);
+        console.log("login post" + result);
+        let aaa = getCookie("accessToken");
+        console.log("cookie", aaa);
 
-        setUser((user.name = result.data.list.name));
+        //setUser((user.name = result.data.list.name));
 
         /*setUser({
           ...user,
@@ -55,6 +54,11 @@ export default function Login() {
         console.log("fail");
       });
   };
+
+  function getCookie(name) {
+    var value = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+    return value ? unescape(value[2]) : null;
+  }
 
   let result = () => {
     if (user.name != null) {

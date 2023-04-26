@@ -41,6 +41,11 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/chat">
+                  chat
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/board">
                   Board
                 </Link>

@@ -7,62 +7,124 @@ import MainContainer from "./Component/MainContainer";
 import MainCard from "./Component/MainCard";
 import { useState } from "react";
 import Footer from "./Component/Footer";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Board from "./Component/Board";
 import Board2 from "./Component/Board2";
 import ChatGpt from "./Component/ChatGpt";
-import ChatGptSignUp from "./Component/ChatGptSignUp";
-import ChatGptBoard2Input from "./Component/ChatGptBoard2Input";
+import ChatGptSignUp from "./Component/SignUp";
+import ChatGptBoard2Input from "./Component/Board2Input";
+import Chat from "./Component/Chat";
 
-import ChatGptFooter from "./Component/ChatGptFooter";
+import ChatGptFooter from "./Component/Footer2";
 import Board2Input from "./Component/Board2Input";
 import Login from "./Component/Login";
+import ChatGptBoard2Detail from "./Component/Board2Detail";
+import ChatDetail from "./Component/ChatDetail";
 
 function App() {
   let [notice, setNotice] = useState();
 
   return (
     <div className="App">
-      <Route exact path="/">
-        <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <SlideBoard />
+              <MainMenuContainer />
+              <MainContainer />
+              <MainCard />
+              <ChatGptFooter />
+            </>
+          }
+        />
 
-        <SlideBoard />
-        <MainMenuContainer />
-        <MainContainer />
-        <MainCard />
+        <Route
+          path="/login"
+          element={
+            <>
+              <Navbar />
+              <Login />
+            </>
+          }
+        />
 
-        <ChatGptFooter />
-      </Route>
+        <Route path="/ChatGpt" element={<ChatGpt />} />
 
-      <Route exact path="/login">
-        <Navbar />
-        <Login />
-      </Route>
+        <Route
+          path="/ChatGptSignUp"
+          element={
+            <>
+              <Navbar />
+              <ChatGptSignUp />
+            </>
+          }
+        />
 
-      <Route exact path="/ChatGpt">
-        <ChatGpt />
-      </Route>
-      <Route exact path="/ChatGptSignUp">
-        <Navbar />
-        <ChatGptSignUp />
-      </Route>
+        <Route
+          path="/board2/*"
+          element={
+            <>
+              <Navbar />
+              <Board2 />
+              <ChatGptFooter />
+            </>
+          }
+        />
 
-      <Route exact path="/board2">
-        <Navbar />
-        <Board2 />
-        <ChatGptFooter />
-      </Route>
+        <Route
+          path="/board2/detail"
+          element={
+            <>
+              <Navbar />
+              <ChatGptBoard2Detail />
+            </>
+          }
+        />
 
-      <Route exact path="/board2/input">
-        <Navbar />
-        <ChatGptBoard2Input />
-      </Route>
+        <Route
+          path="/board2/input"
+          element={
+            <>
+              <Navbar />
+              <ChatGptBoard2Input />
+            </>
+          }
+        />
 
-      <Route exact path="/board">
-        <Navbar />
-        <Board />
-        <Footer />
-      </Route>
+        <Route
+          path="/board"
+          element={
+            <>
+              <Navbar />
+              <Board />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/chat"
+          element={
+            <>
+              <Navbar />
+              <Chat />
+            </>
+          }
+        />
+
+        <Route
+          path="/chat/detail"
+          element={
+            <>
+              <Navbar />
+              <ChatDetail />
+            </>
+          }
+        />
+      </Routes>
     </div>
   );
 }
